@@ -152,11 +152,6 @@ public class Game extends Canvas implements Runnable {
 		game.frame.setVisible(true);
 		
 		game.start();
-		
-		// Vector2 test1 = new Vector2(1, 1);
-		// Vector2 test2 = test1;
-		// test1.addToX(6.0);
-		// System.out.println(test1 + "\n" + test2);
 	}
 	
 }

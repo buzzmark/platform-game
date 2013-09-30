@@ -36,6 +36,4 @@ public abstract class Entity {
 		return position;
 	}
 	
-	// protected void
-	
 }

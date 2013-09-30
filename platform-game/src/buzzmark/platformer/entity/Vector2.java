@@ -27,41 +27,9 @@ public class Vector2 {
 		return x;
 	}
 	
-//	public int getXRound() {
-//		return (int) Math.round(x + xRemainder);
-//	}
-	
-	// public void setXInt(int x) {
-	// this.x = x;
-	// }
-	
 	public int getYInt() {
 		return y;
 	}
-	
-//	public int getYRound() {
-//		return (int) Math.round(y + yRemainder);
-//	}
-	
-	// public void setYInt(int y) {
-	// this.y = y;
-	// }
-	
-	// public double getXRemainder() {
-	// return xRemainder;
-	// }
-	//
-	// public void setXRemainder(double xRemainder) {
-	// this.xRemainder = xRemainder;
-	// }
-	//
-	// public double getYRemainder() {
-	// return yRemainder;
-	// }
-	//
-	// public void setYRemainder(double yRemainder) {
-	// this.yRemainder = yRemainder;
-	// }
 	
 	public double getX() {
 		return x + xRemainder;
