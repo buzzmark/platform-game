@@ -6,13 +6,15 @@ import buzzmark.platformer.graphics.Sprite;
 public abstract class Movable extends Entity {
 	
 	public static final double GRAVITY = 0.17;
+	public static final int RIGHT = 0;
+	public static final int LEFT = 1;
 	
 	protected Vector2 velocity;
 	protected CollisionBox collisionBox;
 	private Sprite cbSprite; //TODO remove when no longer needed
 	protected boolean effectedByGravity, isInAir;
 	protected boolean canJump; //TODO move to subclass
-	protected int dir; // 0 = right, 1 = left
+	protected int direction;
 	
 	// public Movable(Vector2 pos) {
 	// this(pos, null);
@@ -25,7 +27,7 @@ public abstract class Movable extends Entity {
 		effectedByGravity = true;
 		canJump = false;
 		isInAir = true;
-		dir = 0;
+		direction = 0;
 		collisionBox.init(getPosition());
 		cbSprite = new Sprite(collisionBox.getWidth(), collisionBox.getHeight(), 0xFF0000);
 		
@@ -65,9 +67,9 @@ public abstract class Movable extends Entity {
 			double destination = (position.getX() + dx);
 			moveX(destination);
 			if (dx < 0.0)
-				dir = 1;
+				direction = 1;
 			else
-				dir = 0;
+				direction = 0;
 		}
 		
 		if (dy != 0) {
