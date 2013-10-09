@@ -35,9 +35,8 @@ public class Player extends Movable {
 		runningLeft = runningRight; // TODO
 		
 		Sprite[] playerIdle = new Sprite[2];
-		for (int i = 0; i < 2; i++) {
-			playerIdle[i] = new Sprite(16, 32, i * 16, 0, SpriteSheet.playerSheet);
-		}
+		playerIdle[0] = new Sprite(16, 32, 16, 0, SpriteSheet.playerSheet);
+		playerIdle[1] = new Sprite(16, 32, 0, 0, SpriteSheet.playerSheet);
 		
 		animation = idle = new Animation(playerIdle, new int[] { 40, 40 });
 	}
@@ -51,15 +50,24 @@ public class Player extends Movable {
 	public void update() {
 		if (keyboard.isKeyPressed(KeyEvent.VK_A) || keyboard.isKeyPressed(KeyEvent.VK_LEFT)) {
 			velocity.setX(-movespeed);
-			animation = runningLeft;// TODO move
+			if (animation != runningLeft) {
+				animation.reset();
+				animation = runningLeft;
+			}
 		} else if (keyboard.isKeyPressed(KeyEvent.VK_D) || keyboard.isKeyPressed(KeyEvent.VK_RIGHT)) {
 			velocity.setX(movespeed);
-			animation = runningRight;// TODO move
+			if (animation != runningRight) {
+				animation.reset();
+				animation = runningRight;
+			}
 		} else {
 			velocity.setX(0.0);
-			animation = idle;
+			if (animation != idle) {
+				animation.reset();
+				animation = idle;
+			}
 		}
-		animation.update();// todo move/change
+		animation.update();
 		
 		if (keyboard.isKeyPressed(KeyEvent.VK_SPACE) && canJump)
 			jump();

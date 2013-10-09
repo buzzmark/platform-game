@@ -4,7 +4,7 @@ import buzzmark.platformer.entity.Vector2;
 
 public class Animation {
 	
-	private int anim = 0;
+	private int animTimer = 0;
 	private Sprite[] sprites;
 	private int[] durations;
 	private int totalduration = 0;
@@ -26,21 +26,26 @@ public class Animation {
 	}
 	
 	public void update() {
-		if (anim < totalduration - 1)
-			anim++;
+		if (animTimer < totalduration - 1)
+			animTimer++;
 		else
-			anim = 0;
+			animTimer = 0;
+	}
+	
+	public void reset() {
+		animTimer = 0;
 	}
 	
 	public void render(Vector2 pos, Screen screen) {
 		for (int i = 0, total = 0; i < sprites.length; i++) {
 			total += durations[i];
-			if (anim < total) {
+			if (animTimer < total) {
 				screen.renderSprite(pos, sprites[i]);
 				break;
 			}
 			
 		}
-		
 	}
+	
+	
 }
