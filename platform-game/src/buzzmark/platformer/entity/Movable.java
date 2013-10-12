@@ -133,7 +133,10 @@ public abstract class Movable extends Entity {
 				}
 			}
 			double result = tDest + cbDestinationRemainder;
-			collisionBox.setYTop(result);
+			if (yTop != result){
+				isInAir = true;
+				collisionBox.setYTop(result);
+			}
 			
 		} else if (velocity.getY() > 0.0) {
 			int bDest = (int) destination + yOffset + collisionBox.getHeight() - 1;
