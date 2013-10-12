@@ -21,9 +21,9 @@ public class Game extends Canvas implements Runnable {
 	
 	public static final double TARGET_UPS = 60.0; // Desired number of game updates per second
 	
-	private static int width = 320;
+	private static int width = 480;
 	private static int height = width / 16 * 9;
-	private static int scale = 4;
+	private static int scale = 3;
 	private static String title = "Platform Test Game";
 	
 	private Thread thread;
@@ -124,8 +124,8 @@ public class Game extends Canvas implements Runnable {
 		}
 		screen.clear();
 		
-		int xOffset = player.getX() - screen.getWidth() / 2;
-		int yOffset = player.getY() - screen.getHeight() + 4 * 16;
+		int xOffset = player.getX() - screen.getWidth() / 2; //center of the screen
+		int yOffset = player.getY() - screen.getHeight() + 5 * 16 + 8; //2 blocks for player and 3.5 under him
 		level.render(xOffset, yOffset, screen);
 		player.render(screen);
 		// TODO render methods here ^^^
